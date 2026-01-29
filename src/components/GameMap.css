@@ -1,0 +1,381 @@
+.game-map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Score Display */
+.score-display {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  backdrop-filter: blur(10px);
+  min-width: 80px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.score-label {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.score-value {
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Level Nodes - Arranged in a circle */
+.level-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+/* Circle positioning: radius = 220px from center, 7 levels evenly spaced (360°/7 = 51.43°) */
+/* Level 1 - Top (0°) */
+.level-1-node {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Level 2 - 51° clockwise */
+.level-2-node {
+  top: 93px;
+  right: 80px;
+}
+
+/* Level 3 - 103° clockwise */
+.level-3-node {
+  top: 245px;
+  right: 30px;
+}
+
+/* Level 4 - 154° clockwise */
+.level-4-node {
+  bottom: 115px;
+  right: 75px;
+}
+
+/* Level 5 - 206° clockwise */
+.level-5-node {
+  bottom: 115px;
+  left: 75px;
+}
+
+/* Level 6 - 257° clockwise */
+.level-6-node {
+  top: 245px;
+  left: 30px;
+}
+
+/* Level 7 - 309° clockwise */
+.level-7-node {
+  top: 93px;
+  left: 80px;
+}
+
+/* Level Buttons */
+.level-button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.level-button:hover:not(.disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.level-button:active:not(.disabled) {
+  transform: scale(0.95);
+}
+
+.level-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #999 0%, #BBB 100%);
+}
+
+.level-button.completed {
+  background: linear-gradient(135deg, #4ECDC4 0%, #44B8AD 100%);
+}
+
+.level-1 {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+}
+
+.level-2 {
+  background: linear-gradient(135deg, #FFE66D 0%, #FFD700 100%);
+}
+
+.level-3 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.level-4 {
+  background: linear-gradient(135deg, #FF8A5B 0%, #FF6B9D 100%);
+}
+
+.level-5 {
+  background: linear-gradient(135deg, #95E1D3 0%, #38ADA9 100%);
+}
+
+.level-6 {
+  background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+}
+
+.level-7 {
+  background: linear-gradient(135deg, #FFA07A 0%, #FF6347 100%);
+}
+
+.level-number {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.level-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.star {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  font-size: 32px;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.lock {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  font-size: 32px;
+}
+
+/* Background Shapes */
+.background-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape-circle,
+.shape-square,
+.shape-triangle {
+  position: absolute;
+  opacity: 0.1;
+}
+
+.shape-circle {
+  width: 150px;
+  height: 150px;
+  background: white;
+  border-radius: 50%;
+  top: -30px;
+  right: -30px;
+}
+
+.shape-square {
+  width: 120px;
+  height: 120px;
+  background: white;
+  bottom: -20px;
+  left: -20px;
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 140px solid white;
+  top: 200px;
+  right: -40px;
+  opacity: 0.05;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-container {
+    width: 450px;
+    height: 450px;
+  }
+
+  /* Smaller circle radius on mobile: ~160px */
+  .level-1-node {
+    top: 15px;
+  }
+
+  .level-2-node {
+    top: 68px;
+    right: 58px;
+  }
+
+  .level-3-node {
+    top: 180px;
+    right: 22px;
+  }
+
+  .level-4-node {
+    bottom: 83px;
+    right: 55px;
+  }
+
+  .level-5-node {
+    bottom: 83px;
+    left: 55px;
+  }
+
+  .level-6-node {
+    top: 180px;
+    left: 22px;
+  }
+
+  .level-7-node {
+    top: 68px;
+    left: 58px;
+  }
+
+  .level-button {
+    width: 90px;
+    height: 90px;
+    font-size: 13px;
+  }
+
+  .level-number {
+    font-size: 26px;
+  }
+
+  .level-label {
+    font-size: 10px;
+  }
+
+  .star,
+  .lock {
+    font-size: 24px;
+    top: -10px;
+    right: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    width: 350px;
+    height: 350px;
+  }
+
+  /* Even smaller circle radius on small phones: ~120px */
+  .level-1-node {
+    top: 10px;
+  }
+
+  .level-2-node {
+    top: 52px;
+    right: 45px;
+  }
+
+  .level-3-node {
+    top: 140px;
+    right: 17px;
+  }
+
+  .level-4-node {
+    bottom: 63px;
+    right: 42px;
+  }
+
+  .level-5-node {
+    bottom: 63px;
+    left: 42px;
+  }
+
+  .level-6-node {
+    top: 140px;
+    left: 17px;
+  }
+
+  .level-7-node {
+    top: 52px;
+    left: 45px;
+  }
+
+  .level-button {
+    width: 75px;
+    height: 75px;
+    font-size: 11px;
+  }
+
+  .level-number {
+    font-size: 22px;
+  }
+
+  .level-label {
+    font-size: 9px;
+  }
+
+  .star,
+  .lock {
+    font-size: 20px;
+  }
+}

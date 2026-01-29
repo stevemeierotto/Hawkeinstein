@@ -1,0 +1,327 @@
+.spelling-level {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+  overflow: visible;
+  font-family: system-ui, -apple-system, sans-serif;
+  position: relative;
+}
+
+/* Back Button */
+.back-button {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2000;
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 128px;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:active {
+  transform: translateX(-3px) scale(0.95);
+}
+
+/* Score Display */
+.score-display {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 128px;
+}
+
+.score-label {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.score-value {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Timer Display */
+.timer-display {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 128px;
+}
+
+.timer-label {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.timer-value {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Top Area - Draggable Letters */
+.spelling-top-area {
+  position: relative;
+  flex: 1;
+  overflow: visible;
+  cursor: grab;
+  z-index: 100;
+}
+
+.spelling-top-area:active {
+  cursor: grabbing;
+}
+
+/* Draggable Letter - Gold color */
+.draggable-letter {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-size: 56px;
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.1s ease;
+  touch-action: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.draggable-letter:hover {
+  transform: scale(1.05);
+}
+
+.draggable-letter:active {
+  cursor: grabbing;
+  transform: scale(0.98);
+}
+
+.draggable-letter.matched {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+/* Bottom Area - Home Row */
+.spelling-bottom-area {
+  height: 200px;
+  background: rgba(0, 0, 0, 0.1);
+  border-top: 4px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+.home-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
+  position: relative;
+}
+
+.home-row > .back-button {
+  flex-shrink: 0;
+  margin-top: -108px;
+}
+
+.home-row-right {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.home-row-right > .score-display,
+.home-row-right > .timer-display {
+  margin-top: -108px;
+}
+
+.target-letters-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Target Letter - Starts black, turns gold when matched */
+.target-letter {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  font-weight: 900;
+  color: #000000;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.target-letter.matched {
+  color: #FFD700;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.target-letter:hover {
+  transform: scale(1.02);
+}
+
+/* Completion Modal */
+.completion-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.completion-content {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 30px;
+  padding: 50px 70px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: scaleIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.completion-content h2 {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 20px 0;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.completion-content p {
+  font-size: 24px;
+  color: white;
+  margin: 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.final-score {
+  font-size: 32px !important;
+  font-weight: bold;
+  margin-top: 20px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .draggable-letter,
+  .target-letter {
+    width: 60px;
+    height: 60px;
+    font-size: 42px;
+  }
+
+  .home-row {
+    gap: 3px;
+  }
+
+  .completion-content {
+    padding: 30px 40px;
+  }
+
+  .completion-content h2 {
+    font-size: 32px;
+  }
+
+  .completion-content p {
+    font-size: 18px;
+  }
+
+  .final-score {
+    font-size: 24px !important;
+  }
+}

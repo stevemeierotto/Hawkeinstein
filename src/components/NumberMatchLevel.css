@@ -1,0 +1,362 @@
+.number-match-level {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+  position: relative;
+}
+
+/* Back Button */
+.back-button {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 128px;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:active {
+  transform: translateX(-3px) scale(0.95);
+}
+
+/* Score Display */
+.score-display {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 128px;
+}
+
+.score-label {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.score-value {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Timer Display */
+.timer-display {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  height: 128px;
+}
+
+.timer-value {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.timer-display.overtime {
+  animation: timerFlash 0.6s ease-in-out infinite;
+  background: rgba(255, 100, 100, 0.4);
+  border-color: #ff6464;
+}
+
+@keyframes timerFlash {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Top Area - Draggable Numbers Container */
+.number-match-top-area {
+  flex: 0 0 75%;
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  cursor: default;
+  touch-action: none;
+}
+
+/* Draggable Number Element */
+.draggable-number {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  transition: filter 0.1s ease;
+  padding: 10px;
+}
+
+.draggable-number:active {
+  cursor: grabbing;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+}
+
+/* Number Display - Outlined numbers for shape visibility */
+.number-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  height: 85px;
+  background: transparent;
+  border-radius: 0;
+  font-size: 58px;
+  font-weight: bold;
+  color: white;
+  box-shadow: none;
+  text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.4), 2px -2px 0 rgba(0, 0, 0, 0.4), -2px 2px 0 rgba(0, 0, 0, 0.4), 2px 2px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.15s ease;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.3);
+}
+
+.draggable-number:hover .number-display {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Bottom Area - Target Numbers Container */
+.number-match-bottom-area {
+  flex: 0 0 25%;
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.home-row {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 20px;
+  position: relative;
+}
+
+.home-row > .back-button {
+  flex-shrink: 0;
+  margin-top: -108px;
+}
+
+.home-row-right {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.home-row-right > .score-display,
+.home-row-right > .timer-display {
+  margin-top: -108px;
+}
+
+/* Number Targets Container - 1x10 single row for 10 numbers (0-9) */
+.number-targets-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Target Wrapper for proper positioning */
+.number-target-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Placed Number - Shows matched number at target */
+.placed-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  animation: placeNumber 0.4s ease-out;
+}
+
+@keyframes placeNumber {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Target Number - Empty slot showing what number is needed */
+.target-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  height: 85px;
+  border-radius: 0;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.target-number-display {
+  font-size: 58px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3), 1px -1px 0 rgba(0, 0, 0, 0.3), -1px 1px 0 rgba(0, 0, 0, 0.3), 1px 1px 0 rgba(0, 0, 0, 0.3);
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for smooth entry */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.draggable-number {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Touch feedback for touch devices */
+@supports (touch-action: manipulation) {
+  .draggable-number {
+    touch-action: none;
+  }
+}
+
+/* Prevent text selection during drag */
+.number-match-level {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .number-match-top-area {
+    flex: 0 0 70%;
+  }
+
+  .number-match-bottom-area {
+    flex: 0 0 30%;
+    padding: 15px;
+  }
+
+  .number-targets-container {
+    gap: 12px;
+    max-height: 120px;
+  }
+
+  .number-display {
+    width: 73px;
+    height: 73px;
+    font-size: 48px;
+  }
+
+  .target-number {
+    width: 73px;
+    height: 73px;
+  }
+
+  .target-number-display {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .number-match-top-area {
+    flex: 0 0 65%;
+  }
+
+  .number-match-bottom-area {
+    flex: 0 0 35%;
+    padding: 10px;
+  }
+
+  .number-targets-container {
+    gap: 10px;
+    max-height: 100px;
+  }
+
+  .number-display {
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+  }
+
+  .target-number {
+    width: 50px;
+    height: 50px;
+  }
+
+  .target-number-display {
+    font-size: 24px;
+  }
+}

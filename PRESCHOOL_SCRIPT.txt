@@ -1,0 +1,457 @@
+PRESCHOOL EDUCATIONAL GAME - AUDIO SCRIPT
+==========================================
+
+NUMBERS (0-20)
+--------------
+zero
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+
+LETTERS (Uppercase)
+-------------------
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+
+LETTERS (Lowercase)
+-------------------
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+
+LETTER SOUNDS (Phonics)
+-----------------------
+Letter A says "ah"
+Letter B says "buh"
+Letter C says "kuh"
+Letter D says "duh"
+Letter E says "eh"
+Letter F says "fuh"
+Letter G says "guh"
+Letter H says "huh"
+Letter I says "ih"
+Letter J says "juh"
+Letter K says "kuh"
+Letter L says "luh"
+Letter M says "muh"
+Letter N says "nuh"
+Letter O says "ah"
+Letter P says "puh"
+Letter Q says "kwuh"
+Letter R says "ruh"
+Letter S says "sss"
+Letter T says "tuh"
+Letter U says "uh"
+Letter V says "vuh"
+Letter W says "wuh"
+Letter X says "ks"
+Letter Y says "yuh"
+Letter Z says "zzz"
+
+SHAPES
+------
+circle
+square
+triangle
+rectangle
+oval
+diamond
+star
+heart
+hexagon
+pentagon
+octagon
+
+COLORS
+------
+red
+orange
+yellow
+green
+blue
+purple
+pink
+brown
+black
+white
+gray
+gold
+silver
+
+BASIC SIGHT WORDS (Pre-K to 1st Grade)
+---------------------------------------
+the
+a
+an
+and
+I
+you
+he
+she
+it
+we
+they
+is
+are
+was
+were
+can
+do
+go
+see
+look
+me
+my
+like
+this
+that
+here
+there
+up
+down
+in
+out
+on
+off
+big
+little
+come
+get
+help
+play
+said
+make
+run
+jump
+yes
+no
+cat
+dog
+ball
+book
+mom
+dad
+
+COUNTING PHRASES
+----------------
+Let's count to five!
+Let's count to ten!
+Count with me!
+How many do you see?
+
+BASIC MATH (Addition 0-10)
+--------------------------
+zero plus zero equals zero
+zero plus one equals one
+zero plus two equals two
+one plus one equals two
+one plus two equals three
+one plus three equals four
+two plus two equals four
+two plus three equals five
+three plus three equals six
+three plus two equals five
+four plus one equals five
+five plus five equals ten
+two plus one equals three
+three plus one equals four
+four plus two equals six
+five plus two equals seven
+five plus three equals eight
+six plus two equals eight
+six plus three equals nine
+seven plus three equals ten
+
+BASIC MATH (Subtraction 0-10)
+------------------------------
+one minus one equals zero
+two minus one equals one
+three minus one equals two
+three minus two equals one
+four minus one equals three
+four minus two equals two
+five minus one equals four
+five minus two equals three
+five minus three equals two
+six minus one equals five
+seven minus two equals five
+eight minus three equals five
+nine minus four equals five
+ten minus five equals five
+
+POSITIVE FEEDBACK
+-----------------
+Great job!
+Awesome!
+You did it!
+Perfect!
+Wonderful!
+Excellent!
+Amazing!
+Fantastic!
+Super!
+Way to go!
+You're a star!
+Keep going!
+Nice work!
+That's right!
+Correct!
+Yes!
+Good job!
+You got it!
+Smart thinking!
+Brilliant!
+
+ENCOURAGEMENT
+-------------
+Try again!
+Almost there!
+You can do it!
+Keep trying!
+Give it another try!
+So close!
+Nice try!
+Think carefully!
+Take your time!
+You're doing great!
+
+LEVEL COMPLETION
+----------------
+Level complete!
+You finished the level!
+Congratulations!
+You won!
+All done!
+Mission complete!
+You're a winner!
+Level passed!
+Moving to the next level!
+Ready for more?
+
+INSTRUCTIONS
+------------
+Tap the circle
+Find the red square
+Match the shapes
+Drag it here
+Touch the number
+Which one is different?
+Point to the triangle
+Can you find it?
+Select the correct answer
+Choose your answer
+Listen carefully
+Watch closely
+Let's learn!
+Ready to play?
+Let's begin!
+Pay attention!
+
+GAME MECHANICS
+--------------
+Drag
+Drop
+Tap
+Touch
+Slide
+Move
+Place
+Match
+Find
+Choose
+Select
+Pick
+
+COLOR DESCRIPTIONS
+------------------
+The color is red
+The color is blue
+The color is green
+The color is yellow
+The color is orange
+The color is purple
+The color is pink
+The color is brown
+The color is black
+The color is white
+
+SHAPE DESCRIPTIONS
+------------------
+This is a circle
+This is a square
+This is a triangle
+This is a rectangle
+This is a star
+This is a heart
+
+NUMBER DESCRIPTIONS
+-------------------
+This is the number one
+This is the number two
+This is the number three
+This is the number four
+This is the number five
+This is the number six
+This is the number seven
+This is the number eight
+This is the number nine
+This is the number ten
+
+SPECIAL ACTIONS (for sound effects - note for developer)
+---------------------------------------------------------
+NOTE: For the following, you'll want actual SOUND EFFECTS, not text-to-speech:
+- Swoosh (when dragging objects)
+- Ding (correct match)
+- Chime (level complete)
+- Happy bells (achievement)
+- Buzzer/Wrong sound (incorrect)
+- Pop (button press)
+- Sparkle (special effect)
+- Bounce (object drops)
+
+However, if you want voice-acted sound effects:
+Whoosh!
+Swoosh!
+Ding ding ding!
+Yay!
+Uh oh!
+Oops!
+Boing!
+Pop!
+
+TRANSITIONS
+-----------
+Next!
+Here we go!
+Let's go!
+Ready?
+Get set!
+Go!
+
+QUESTION PROMPTS
+----------------
+What color is this?
+What shape is this?
+What number is this?
+What letter is this?
+Can you find the red one?
+Which one is bigger?
+Which one is smaller?
+How many circles do you see?
+Point to the triangle!
+Where is the blue square?
+
+COUNTING GAMES
+--------------
+One apple
+Two apples
+Three apples
+Four apples
+Five apples
+One star
+Two stars
+Three stars
+Four stars
+Five stars
+Count the shapes!
+How many?
+
+LETTER RECOGNITION
+------------------
+Find the letter A
+Find the letter B
+Point to the letter C
+Which letter is this?
+Say the letter!
+Can you find it?
+
+READING READINESS
+-----------------
+Cat starts with C
+Dog starts with D
+Ball starts with B
+Apple starts with A
+What sound does it make?
+Let's spell cat: C A T
+Let's spell dog: D O G
+Let's spell the word!
+
+GOODBYE/EXIT
+------------
+Great playing!
+See you soon!
+Goodbye!
+Come back and play again!
+Nice learning today!
+You're getting so smart!
+Bye bye!
+Time to go!
+
+===================================
+TOTAL ESTIMATED CLIPS: ~450-500
+TOTAL CHARACTERS: ~3,500-4,500
+===================================
